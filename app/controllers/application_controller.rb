@@ -52,4 +52,48 @@ class ApplicationController < ActionController::Base
       }
     }
   end
+    render json: value
+  end
+
+  def contract
+    value = {
+      payment_day: 1,
+      start_date: 'some date format',
+      end_date: 'some date format',
+      rent: 1000,
+      late_fee: 100,
+      deposit: 500
+    }
+    render json: value
+  end
+
+  def payment
+    payment = {
+      contract: {
+        payment_day: 1,
+        start_date: 'some date format',
+        end_date: 'some date format',
+        rent: 1000,
+        late_fee: 100,
+        deposit: 500
+      },
+      date: 'some date format',
+      balance: 1000
+    }
+    render json: payment
+  end
+
+  def terminate
+    termination = {
+      contract: {
+        payment_day: 1,
+        start_date: 'some date format',
+        end_date: 'some date format',
+        rent: 1000,
+        late_fee: 100,
+        deposit: 500
+      }
+    }
+    render json: termination
+  end
 end
