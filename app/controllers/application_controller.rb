@@ -56,8 +56,8 @@ class ApplicationController < ActionController::Base
   def contract
     value = {
       payment_day: 1,
-      start_date: 'some date format',
-      end_date: 'some date format',
+      start_date: 'Jan. 3rd, 2017',
+      end_date: 'Jan. 3rd, 2018',
       rent: 1000,
       late_fee: 100,
       deposit: 500
@@ -69,14 +69,15 @@ class ApplicationController < ActionController::Base
     payment = {
       contract: {
         payment_day: 1,
-        start_date: 'some date format',
-        end_date: 'some date format',
+        start_date: 'Jan. 3rd, 2017',
+        end_date: 'Jan. 3rd, 2018',
         rent: 1000,
         late_fee: 100,
         deposit: 500
       },
-      date: 'some date format',
+      date: 'Feb. 1st, 2017',
       balance: 1000
+      payment: 1000
     }
     render json: payment
   end
@@ -85,8 +86,8 @@ class ApplicationController < ActionController::Base
     termination = {
       contract: {
         payment_day: 1,
-        start_date: 'some date format',
-        end_date: 'some date format',
+        start_date: 'Jan. 3rd, 2017',
+        end_date: 'Jan. 3rd, 2018',
         rent: 1000,
         late_fee: 100,
         deposit: 500
