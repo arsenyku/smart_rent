@@ -6,17 +6,20 @@ class ApplicationController < ActionController::Base
     render json: value
   end
 
-  def tenant_history
-    # One object for each property that they've stayed at
-  end
-
-  def landlord_history
-    # One object per property that they own
-  end
-
   def property_history
-    # One aggregate object of all tenancies
+    value = { blocklord: "Lord of the Blocks" }
+    render json: value
   end
 
+  def contract
+    value = {
+      payment_day: 1,
+      start_date: 'some date format',
+      end_date: 'some date format',
+      rent: 1000,
+      late_fee: 100
+    }
+    render json: value
+  end
 
 end
