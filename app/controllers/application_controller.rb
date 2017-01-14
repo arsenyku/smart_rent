@@ -52,8 +52,6 @@ class ApplicationController < ActionController::Base
       }
     }
   end
-    render json: value
-  end
 
   def contract
     value = {
