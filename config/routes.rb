@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get '/helloworld', to: 'application#helloworld'
   get '/property_history', to: 'application#property_history'
   get '/contract', to: 'application#contract'
+  get '/payment', to: "application#payment"
+  get '/terminate', to: "application#terminate"
 end
