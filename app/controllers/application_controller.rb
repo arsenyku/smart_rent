@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
       start_date: 'some date format',
       end_date: 'some date format',
       rent: 1000,
-      late_fee: 100
+      late_fee: 100,
       deposit: 500
     }
     render json: value
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
         start_date: 'some date format',
         end_date: 'some date format',
         rent: 1000,
-        late_fee: 100
+        late_fee: 100,
         deposit: 500
       },
       date: 'some date format',
@@ -46,9 +46,10 @@ class ApplicationController < ActionController::Base
         start_date: 'some date format',
         end_date: 'some date format',
         rent: 1000,
-        late_fee: 100
+        late_fee: 100,
         deposit: 500
       }
     }
+    render json: termination
   end
 end
