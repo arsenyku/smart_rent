@@ -10,9 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115002834) do
+ActiveRecord::Schema.define(version: 20170115003739) do
 
   create_table "contracts", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "rent"
+    t.integer  "late_fee"
+    t.integer  "deposit"
     t.integer  "landlord_id"
     t.integer  "tenant_id"
     t.integer  "property_id"
@@ -31,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170115002834) do
 
   create_table "payments", force: :cascade do |t|
     t.integer  "total"
-    t.datetime "due_date"
+    t.datetime "date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "landlord_id"
@@ -71,6 +76,11 @@ ActiveRecord::Schema.define(version: 20170115002834) do
 
   create_table "tenants", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "terminations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
