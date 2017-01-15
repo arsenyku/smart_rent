@@ -1,24 +1,3 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A Rails vaporware API to handle back-end transactions for a "smart lease" iOS app. If you use your imagination, you can picture transactions being made to Ethereum contracts, storing tenant-landlord interactions in the block chain.
