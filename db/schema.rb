@@ -10,9 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114222401) do
+ActiveRecord::Schema.define(version: 20170115002834) do
 
-  create_table "users", force: :cascade do |t|
+  create_table "contracts", force: :cascade do |t|
+    t.integer  "landlord_id"
+    t.integer  "tenant_id"
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["landlord_id"], name: "index_contracts_on_landlord_id"
+    t.index ["property_id"], name: "index_contracts_on_property_id"
+    t.index ["tenant_id"], name: "index_contracts_on_tenant_id"
+  end
+
+  create_table "landlords", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "total"
+    t.datetime "due_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "landlord_id"
+    t.integer  "tenant_id"
+    t.integer  "contract_id"
+    t.integer  "property_id"
+    t.index ["contract_id"], name: "index_payments_on_contract_id"
+    t.index ["landlord_id"], name: "index_payments_on_landlord_id"
+    t.index ["property_id"], name: "index_payments_on_property_id"
+    t.index ["tenant_id"], name: "index_payments_on_tenant_id"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "address"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "landlord_id"
+    t.integer  "duration_of_lease"
+    t.index ["landlord_id"], name: "index_properties_on_landlord_id"
+  end
+
+  create_table "requisitions", force: :cascade do |t|
+    t.string   "issue"
+    t.integer  "response_time"
+    t.boolean  "resolved"
+    t.integer  "landlord_id"
+    t.integer  "tenant_id"
+    t.integer  "contract_id"
+    t.integer  "property_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["contract_id"], name: "index_requisitions_on_contract_id"
+    t.index ["landlord_id"], name: "index_requisitions_on_landlord_id"
+    t.index ["property_id"], name: "index_requisitions_on_property_id"
+    t.index ["tenant_id"], name: "index_requisitions_on_tenant_id"
+  end
+
+  create_table "tenants", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
