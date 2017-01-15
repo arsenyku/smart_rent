@@ -66,20 +66,29 @@ class ApplicationController < ActionController::Base
   end
 
   def payment
-    payment = {
-      contract: {
-        payment_day: 1,
-        start_date: 'Jan. 3rd, 2017',
-        end_date: 'Jan. 3rd, 2018',
-        rent: 1000,
-        late_fee: 100,
-        deposit: 500
-      },
-      date: 'Feb. 1st, 2017',
-      balance: 1000
-      payment: 1000
-    }
+    # payment = {
+    #   contract: {
+    #     payment_day: 1,
+    #     start_date: 'Jan. 3rd, 2017',
+    #     end_date: 'Jan. 3rd, 2018',
+    #     rent: 1000,
+    #     late_fee: 100,
+    #     deposit: 500
+    #   },
+    #   date: 'Feb. 1st, 2017',
+    #   balance: 1000,
+    #   payment: 1000
+    # }
+    payment = payment_data
     render json: payment
+  end
+
+  def make_payment
+    payment_data(params[:amount].to_i)
+    value = {
+      the_parameter_you_sent_me: params[:amount]
+    }
+    render json: payment_data
   end
 
   def terminate
@@ -94,5 +103,24 @@ class ApplicationController < ActionController::Base
       }
     }
     render json: termination
+  end
+
+  private
+
+  def payment_data(amount=0)
+    amount ? amount = amount : amount = 0
+    payment = {
+      contract: {
+        payment_day: 1,
+        start_date: 'Jan. 3rd, 2017',
+        end_date: 'Jan. 3rd, 2018',
+        rent: 1000,
+        late_fee: 100,
+        deposit: 500
+      },
+      date: 'Feb. 1st, 2017',
+      balance: 1000 + amount,
+      payment: 1000
+    }
   end
 end
