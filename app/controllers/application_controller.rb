@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def property_history
     # @properties = Property.all
-    render json: 
+    # render json: 
 
     render json: {
       "1060 Homer Street": {
