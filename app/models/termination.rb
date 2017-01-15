@@ -1,0 +1,2 @@
+class Termination < ApplicationRecord
+end
