@@ -7,8 +7,11 @@ class ApplicationController < ActionController::Base
   end
 
   def property_history
+    # @properties = Property.all
+    render json: 
+
     render json: {
-      "property1": {
+      "1060 Homer Street": {
         "tenant": "Joe Schmoe",
         "duration_of_lease": 4,
         "requisitions": {
@@ -29,7 +32,7 @@ class ApplicationController < ActionController::Base
           }
         }
       },
-      "property2": {
+      "128 West Hastings Street": {
         "tenant": "Lisa Simpson",
         "duration_of_lease": 12,
         "requisitions": {
@@ -45,7 +48,7 @@ class ApplicationController < ActionController::Base
           }
         }
       },
-      "property3": {
+      "3111 Commercial Drive": {
         "tenant": "Sarah Foot",
         "duration_of_lease": 0,
         "requisitions": {}
