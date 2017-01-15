@@ -66,19 +66,6 @@ class ApplicationController < ActionController::Base
   end
 
   def payment
-    # payment = {
-    #   contract: {
-    #     payment_day: 1,
-    #     start_date: 'Jan. 3rd, 2017',
-    #     end_date: 'Jan. 3rd, 2018',
-    #     rent: 1000,
-    #     late_fee: 100,
-    #     deposit: 500
-    #   },
-    #   date: 'Feb. 1st, 2017',
-    #   balance: 1000,
-    #   payment: 1000
-    # }
     payment = payment_data
     render json: payment
   end
@@ -107,7 +94,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def payment_data(amount=0)
+  def payment_data(id = 1, amount=0)
     amount ? amount = amount : amount = 0
     payment = {
       contract: {
@@ -118,8 +105,9 @@ class ApplicationController < ActionController::Base
         late_fee: 100,
         deposit: 500
       },
+      id: 1,
       date: 'Feb. 1st, 2017',
-      balance: 1000 + amount,
+      balance: 0 + amount,
       payment: 1000
     }
   end
